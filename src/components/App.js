@@ -45,13 +45,15 @@ function App() {
     <div className="App">
       <header>
         <h1>Adalabers</h1>
-        <form>
-          <label>Nombre</label>
+        <form className="form">
+          <label className="form_label">Nombre</label>
           <input
+            className="form_input"
             placeholder="Ej:Maricarmen"
             onInput={handleSearch}
             value={search}
           />
+          <label form_label>Escoge una tutora</label>
           <select onInput={handleSearch} value="search">
             <option>Escoge una opción</option>
             <option value="Yanelis">Yanelis</option>
