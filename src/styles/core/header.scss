@@ -1,11 +1,10 @@
 .form {
   display: flex;
-  gap: 5px;
-  justify-content: flex-start;
-  margin: 10px;
+  gap: 10px;
+  margin: 20px;
 }
 .form_label {
-  width: 50px;
+  width: 100px;
 }
 .form_input {
   border: 1px solid lightseagreen;

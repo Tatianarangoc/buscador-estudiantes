@@ -1,6 +1,25 @@
 .table {
-  background-color: aqua;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+  border-collapse: collapse;
+  width: 90%;
+  text-align: justify;
+  margin: 10px;
+}
+.table-td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.table-tr:nth-child(even) {
+  background-color: lavender;
+}
+
+.table-tr:hover {
+  background-color: lightcyan;
+}
+.table-th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: lightcyan;
+  text-align: center;
+  text-transform: uppercase;
 }

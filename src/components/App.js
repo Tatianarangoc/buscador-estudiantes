@@ -22,9 +22,9 @@ function App() {
     })
     .map((listado) => {
       return (
-        <tr key={listado.id}>
-          <td>{listado.name}</td>
-          <td>{listado.counselor}</td>
+        <tr key={listado.id} className="table-tr">
+          <td className="table-td">{listado.name}</td>
+          <td className="table-td">{listado.counselor}</td>
           <td>{listado.speciality}</td>
         </tr>
       );
@@ -63,19 +63,19 @@ function App() {
           </select>
         </form>
       </header>
-      <table className="table">
+      <table className="table ">
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Tutora</th>
-            <th>Especialidad</th>
+            <th className="table-th">Nombre</th>
+            <th className="table-th">Tutora</th>
+            <th className="table-th">Especialidad</th>
           </tr>
         </thead>
-        <tbody>{htmlData}</tbody>
+        <tbody className="border list">{htmlData}</tbody>
       </table>
 
-      <form>
-        <label>Nombre:</label>
+      <form className="form">
+        <label className="label">Nombre:</label>
         <input
           type="text"
           name="name"
@@ -83,7 +83,7 @@ function App() {
           onChange={handleNewStudent}
           value={newStudent.name}
         ></input>
-        <label>Tutora:</label>
+        <label className="label">Tutora:</label>
         <input
           type="text"
           name="counselor"
@@ -91,7 +91,7 @@ function App() {
           onChange={handleNewStudent}
           value={newStudent.counselor}
         ></input>
-        <label>Especialidad:</label>
+        <label className="label">Especialidad:</label>
         <input
           type="especialidad"
           name="speciality"
