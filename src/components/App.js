@@ -8,9 +8,11 @@ function App() {
   const [data, setData] = useState(listStudents);
   //Me crea la información de una nuesta estudiante
   const [newStudent, setNewStudent] = useState({
+    id: crypto.randomUUID(),
     name: '',
     counselor: '',
     speciality: '',
+    social_networks: [],
   });
   const [search, setSearch] = useState('');
   const htmlData = data
@@ -36,7 +38,20 @@ function App() {
   };
   const handleClick = (ev) => {
     ev.preventDefault();
-    setData([...data, newStudent]);
+    if (
+      (newStudent.name !== '') &
+      (newStudent.counselor !== '') &
+      (newStudent.speciality !== '')
+    ) {
+      setData([...data, newStudent]);
+      setNewStudent({
+        id: crypto.randomUUID(),
+        name: '',
+        counselor: '',
+        speciality: '',
+        social_networks: [],
+      });
+    }
   };
   const handleSearch = (ev) => {
     setSearch(ev.target.value);
@@ -63,44 +78,53 @@ function App() {
           </select>
         </form>
       </header>
-      <table className="table ">
-        <thead>
-          <tr>
-            <th className="table-th">Nombre</th>
-            <th className="table-th">Tutora</th>
-            <th className="table-th">Especialidad</th>
-          </tr>
-        </thead>
-        <tbody className="border list">{htmlData}</tbody>
-      </table>
-
-      <form className="form">
-        <label className="label">Nombre:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          onChange={handleNewStudent}
-          value={newStudent.name}
-        ></input>
-        <label className="label">Tutora:</label>
-        <input
-          type="text"
-          name="counselor"
-          id="counselor"
-          onChange={handleNewStudent}
-          value={newStudent.counselor}
-        ></input>
-        <label className="label">Especialidad:</label>
-        <input
-          type="especialidad"
-          name="speciality"
-          id="speciality"
-          onChange={handleNewStudent}
-          value={newStudent.speciality}
-        ></input>
-        <input type="submit" value="Añadir" onClick={handleClick}></input>
-      </form>
+      <main>
+        {' '}
+        <section>
+          <table className="table ">
+            <thead>
+              <tr>
+                <th className="table-th">Nombre</th>
+                <th className="table-th">Tutora</th>
+                <th className="table-th">Especialidad</th>
+              </tr>
+            </thead>
+            <tbody className="border list">{htmlData}</tbody>
+          </table>
+        </section>
+        <section>
+          <form className="form">
+            <label className="label">Nombre:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              onChange={handleNewStudent}
+              value={newStudent.name}
+              required
+            ></input>
+            <label className="label">Tutora:</label>
+            <input
+              type="text"
+              name="counselor"
+              id="counselor"
+              onChange={handleNewStudent}
+              value={newStudent.counselor}
+              required
+            ></input>
+            <label className="label">Especialidad:</label>
+            <input
+              type="especialidad"
+              name="speciality"
+              id="speciality"
+              onChange={handleNewStudent}
+              value={newStudent.speciality}
+              required
+            ></input>
+            <input type="submit" value="Añadir" onClick={handleClick}></input>
+          </form>
+        </section>
+      </main>
     </div>
   );
 }
