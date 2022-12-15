@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import listStudents from '../data/listado.json';
-import '../styles/App.scss';
+import { useEffect, useState } from 'react';
 
+import '../styles/App.scss';
+import getDataApi from '../services/api';
 function App() {
-  //Variables de estado
+  //-------------Variables de estado------------------
   //Me trae todos los datos del Json
-  const [data, setData] = useState(listStudents);
+  let list = [{}];
+  const [data, setData] = useState([]);
   //Me crea la información de una nuesta estudiante
   const [newStudent, setNewStudent] = useState({
     id: crypto.randomUUID(),
@@ -15,6 +16,7 @@ function App() {
     social_networks: [],
   });
   const [search, setSearch] = useState('');
+
   const htmlData = data
     .filter((eachStudent) => {
       return (
@@ -24,14 +26,19 @@ function App() {
     })
     .map((listado) => {
       return (
-        <tr key={listado.id} className="table-tr">
+        <tr key={listado.id} className="table-tr ">
           <td className="table-td">{listado.name}</td>
           <td className="table-td">{listado.counselor}</td>
-          <td>{listado.speciality}</td>
+          <td className="table-td">{listado.speciality}</td>
         </tr>
       );
     });
-
+  //------------------------------------- USEEFFECT------------------------------
+  useEffect(() => {
+    getDataApi().then((data) => {
+      setData(data.results);
+    });
+  }, []);
   //FUNCIONES
   const handleNewStudent = (ev) => {
     setNewStudent({ ...newStudent, [ev.target.id]: ev.target.value });
@@ -54,6 +61,7 @@ function App() {
     }
   };
   const handleSearch = (ev) => {
+    ev.preventDefault();
     setSearch(ev.target.value);
   };
   return (
@@ -68,12 +76,12 @@ function App() {
             onInput={handleSearch}
             value={search}
           />
-          <label form_label>Escoge una tutora</label>
-          <select onInput={handleSearch} value="search">
-            <option>Escoge una opción</option>
+          <label className="form_label">Escoge una tutora</label>
+          <select onChange={handleSearch}>
+            <option value="">Todos</option>
             <option value="Yanelis">Yanelis</option>
             <option value="Dayana">Dayana</option>
-            <option value="Ivan">Ivan</option>
+            <option value="Iván">Iván</option>
             <option value="Miguel">Miguel</option>
           </select>
         </form>
