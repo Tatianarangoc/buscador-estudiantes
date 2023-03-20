@@ -66,28 +66,56 @@ function App() {
   };
   return (
     <div className="App">
-      <header>
-        <h1>Adalabers</h1>
-        <form className="form">
-          <label className="form_label">Nombre</label>
-          <input
-            className="form_input"
-            placeholder="Ej:Maricarmen"
-            onInput={handleSearch}
-            value={search}
-          />
-          <label className="form_label">Escoge una tutora</label>
-          <select onChange={handleSearch}>
-            <option value="">Todos</option>
-            <option value="Yanelis">Yanelis</option>
-            <option value="Dayana">Dayana</option>
-            <option value="Iván">Iván</option>
-            <option value="Miguel">Miguel</option>
-          </select>
+     <header className='header'>
+        <h1 className='title'>Estudiantes</h1>
+        <form>
+          <label className='label_name'>Nombre</label>
+            <input className='input_search' type="text" name="name" placeholder="Ej: MariCarmen" onInput={handleSearch}/> 
+            <select className='select' default="default" onInput={handleSearch}>
+              <option value="default" disabled >¿Quién es tu tutor?</option>
+              <option>Yanelis</option>
+              <option>Dayana</option>
+              <option>Iván</option>
+            </select>
         </form>
       </header>
       <main>
+      
         {' '}
+      
+        <form className='add_adalaber'>
+            <label  className='label_name'>Nombre:</label>
+            <input
+             className='input_search'
+              type="text"
+              name="name"
+              id="name"
+              onChange={handleNewStudent}
+              value={newStudent.name}
+              required
+            ></input>
+            <label className='label_name'>Tutora:</label>
+            <input
+             className='input_search'
+              type="text"
+              name="counselor"
+              id="counselor"
+              onChange={handleNewStudent}
+              value={newStudent.counselor}
+              required
+            ></input>
+            <label className='label_name'>Especialidad:</label>
+            <input
+            className='input_search_speciality'
+              type="especialidad"
+              name="speciality"
+              id="speciality"
+              onChange={handleNewStudent}
+              value={newStudent.speciality}
+              required
+            ></input>
+            <input className='add'  type="submit" value="Añadir" onClick={handleClick}></input>
+          </form>
         <section>
           <table className="table ">
             <thead>
@@ -100,38 +128,7 @@ function App() {
             <tbody className="border list">{htmlData}</tbody>
           </table>
         </section>
-        <section>
-          <form className="form">
-            <label className="label">Nombre:</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              onChange={handleNewStudent}
-              value={newStudent.name}
-              required
-            ></input>
-            <label className="label">Tutora:</label>
-            <input
-              type="text"
-              name="counselor"
-              id="counselor"
-              onChange={handleNewStudent}
-              value={newStudent.counselor}
-              required
-            ></input>
-            <label className="label">Especialidad:</label>
-            <input
-              type="especialidad"
-              name="speciality"
-              id="speciality"
-              onChange={handleNewStudent}
-              value={newStudent.speciality}
-              required
-            ></input>
-            <input type="submit" value="Añadir" onClick={handleClick}></input>
-          </form>
-        </section>
+        
       </main>
     </div>
   );

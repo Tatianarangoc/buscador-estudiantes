@@ -1,7 +1,7 @@
 .form {
   display: flex;
-  gap: 10px;
-  margin: 20px;
+  gap: 20px;
+  margin: 10px;
 }
 .form_label {
   width: 100px;
@@ -9,4 +9,43 @@
 .form_input {
   border: 1px solid lightseagreen;
   width: 150px;
+}
+@media(min-width: 768px) {
+  .form {
+gap:1px  }
+}
+
+.header{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 20px 20px 20px;
+  border-bottom: 1px solid lightseagreen;
+}
+
+.title{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:lightseagreen;
+}
+
+.label_name{
+  font-size: 18px;
+  margin: 10px;
+  color:lightseagreen;
+}
+
+.input_search{
+  border: 1px solid lightseagreen;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.select{
+  color: grey;
+  font-size: 15px;
+  border: 1px solid lightseagreen;
+  border-radius: 8px;
+  padding: 6px;
+  margin: 21px;
 }

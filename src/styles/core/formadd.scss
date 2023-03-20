@@ -1,11 +1,28 @@
-.form {
-  display: flex;
-  margin-top: 20px;
-  width: 150px;
-  height: 40px;
-  align-items: center;
+.title_add_adalaber{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:  lightblue;
 }
-.label {
-  text-transform: uppercase;
-  text-decoration: solid;
+
+.form_new_adalaber{
+  display: flex;
+  flex-direction: column;
+  width: 12vw;
+}
+
+.input_search_speciality{
+  border: 1px solid lightseagreen;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.add{
+  margin-top: 28px;
+  margin-left: 5px;
+  padding: 8px;
+  width: 100px;
+  border-radius: 8px;
+  border: 1px solid lightblue;
+  color: white;
+  background-color: lightblue;
+  font-size: 18px;
 }
